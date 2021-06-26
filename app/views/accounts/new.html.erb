@@ -1,0 +1,15 @@
+<div class="form-group">
+<%= form_for Account.new do |f| %>
+  Account Name: <%= @user.name %>
+  <br/>
+  Account E-mail: <%= @user.email %>
+  <br/>
+  <%= f.label :amount, 'Balance'%>
+  <%= f.text_field :amount, class: "form-control", required: true %>
+  <div class="form-group">
+    <%= f.submit 'Criar', class: "btn btn-primary" %>
+  </div>
+<% end %>
+<%= button_to "Go Back", root_path, :id => "open-root-path",
+      :class => "btn btn-info", :method => :get %>
+</div>
