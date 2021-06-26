@@ -1,0 +1,22 @@
+<%= content_for(:title, 'Welcome To Your Online Banking') %>
+<h1>
+  My Bank
+</h1>
+<div class="row">
+  <div class="col-md-12">
+    <h2>
+      Number Of Accounts #{number_of_accounts}
+    </h2>
+    <h2>
+      Number Of Clients #{number_of_users}
+    </h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to accounts_path do %>
+      <i class="fa fa-building"></i>
+      Bank Accounts
+    <% end %>
+  </div>
+</div>

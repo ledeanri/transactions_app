@@ -11,6 +11,6 @@ class User < ApplicationRecord
   has_many :accounts
 
   def format_name
-    self.first_name = self.name.upcase
+    self.name = self.name.upcase
   end
 end
