@@ -1,0 +1,26 @@
+<h1>
+  Bank Accounts
+</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Account Name</th>
+      <th>Account Balance</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account.user.name %></td>
+        <td><%= number_to_currency(account.amount) %></td>
+        <td>
+          <%= link_to account_path(account.id), class: 'btn btn-primary' do %>
+            <i class="fa fa-building"></i>
+            Show
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

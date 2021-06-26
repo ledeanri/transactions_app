@@ -1,0 +1,39 @@
+<h1>Account Name: <%= @account.user.name %></h1>
+<table class='table table-bordered'>
+  <thead>
+    <tr>
+      <th>Date Of Transaction</th>
+      <th>Transaction Type</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= @account.deposits.each do |d| %>
+    <tr>
+      <th><%= d.created_at %></th>
+      <th>Deposits</th>
+      <th><%= d.amount %></th>
+    </tr>
+    <% end %>
+    <%= @account.transfers.each do |d| %>
+    <tr>
+      <th><%= d.created_at %></th>
+      <th>Transfers</th>
+      <th><%= d.amount %></th>
+    </tr>
+    <% end %>
+    <%= @account.withdrawals.each do |d| %>
+    <tr>
+      <th><%= d.created_at %></th>
+      <th>Withdrawal</th>
+      <th><%= d.amount %></th>
+    </tr>
+    <% end %>
+    <tr>
+      <th></th>
+      <th>Balance</th>
+      <th><%= number_to_currency(@account.amount) %></th>
+    </tr>
+
+  </tbody>
+</table>
