@@ -8,27 +8,28 @@
           :class => "btn btn-danger btn-sm", :method => :delete %>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-12">
-    <%= button_to "New Account", new_account_path, :id => "open-new-account-path",
-          :class => "btn btn-primary", :method => :get %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <h2>
-      Number Of Accounts <%= number_of_accounts %>
-    </h2>
-    <h2>
-      Number Of Clients <%= number_of_users %>
-    </h2>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to accounts_path do %>
-      <i class="fa fa-building"></i>
-      Accounts
-    <% end %>
-  </div>
-</div>
+<br/>
+<% @account = get_account %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Account Number</th>
+      <th>Account Balance</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @account.user.name %></td>
+        <td><%= @account.account_number %></td>
+        <td><%= number_to_currency(@account.amount) %></td>
+        <td>
+          <%= link_to account_path(@account.id), class: 'btn btn-primary' do %>
+            <i class="fa fa-building"></i>
+            Show Transactions
+          <% end %>
+        </td>
+      </tr>
+  </tbody>
+</table>

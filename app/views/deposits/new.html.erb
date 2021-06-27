@@ -1,0 +1,32 @@
+<h3>New Deposit</h3>
+<div class="form-group">
+  <%= form_for(setup_deposit(@deposit)) do |f| %>
+  <% if @deposit.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@deposit.errors.count, "error") %>
+        prohibited this post from being saved:
+      </h2>
+
+      <ul>
+      <% @deposit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.fields_for :account do |ff| %>
+        <%= ff.label :account_number, "Account Number" %>
+        <%= ff.text_field :account_number, class: "form-control" %>
+        <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label :amount, "Amount" %>
+      <%= f.text_field :amount, class: "form-control", required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Deposit', class: "btn btn-primary", required: true %>
+    </div>
+  <% end %>
+</div>

@@ -28,5 +28,9 @@
     <%= f.submit "Sign up", class: "btn btn-primary" %>
   </div>
 <% end %>
+<div class="form-group">
+  <%= button_to "New Deposit", new_deposit_path, :id => "new-deposit-path",
+        :class => "btn btn-primary", :method => :get %>
+</div>
 
 <%= render "devise/shared/links" %>

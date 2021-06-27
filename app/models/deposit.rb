@@ -5,6 +5,8 @@ class Deposit < ApplicationRecord
   validates :amount, presence: true, numericality: true
   validates :transaction_number, presence: true, uniqueness: true
 
+  accepts_nested_attributes_for :account
+
   before_validation :load_defaults
 
   def load_defaults

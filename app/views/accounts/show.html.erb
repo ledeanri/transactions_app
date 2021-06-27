@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <% if @account.deposits.any? %>
-      <%= @account.deposits.each do |d| %>
+      <% @account.deposits.each do |d| %>
       <tr>
         <th><%= d.created_at %></th>
         <th>Deposits</th>
@@ -21,7 +21,7 @@
       <% end %>
     <% end %>
     <% if @account.transfers.any? %>
-      <%= @account.transfers.each do |d| %>
+      <% @account.transfers.each do |d| %>
       <tr>
         <th><%= d.created_at %></th>
         <th>Transfers</th>
@@ -30,7 +30,7 @@
       <% end %>
     <% end %>
     <% if @account.withdrawals.any? %>
-      <%= @account.withdrawals.each do |d| %>
+      <% @account.withdrawals.each do |d| %>
       <tr>
         <th><%= d.created_at %></th>
         <th>Withdrawal</th>
