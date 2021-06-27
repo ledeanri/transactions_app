@@ -16,4 +16,16 @@ module ApplicationHelper
     end
     @account
   end
+
+  def flash_message
+    messages = ""
+    #class="alert alert-success" role="alert"
+    [:notice, :info, :warning, :error].each {|type|
+      if flash[type]
+        messages += "<div class=\"alert alert-success #{type}\" role=\"alert\">#{flash[type]}</div>"
+      end
+    }
+
+    messages.html_safe
+  end
 end

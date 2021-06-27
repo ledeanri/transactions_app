@@ -2,7 +2,7 @@ class Deposit < ApplicationRecord
   belongs_to :account
 
   validates :account, presence: true
-  validates :amount, presence: true, numericality: true
+  validates :amount, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
   validates :transaction_number, presence: true, uniqueness: true
 
   accepts_nested_attributes_for :account

@@ -9,6 +9,11 @@
   </div>
 </div>
 <br/>
+
+<div class="form-group">
+  <%= button_to "New Deposit", new_deposit_path, :id => "new-deposit-path",
+        :class => "btn btn-primary", :method => :get %>
+</div>
 <% @account = get_account %>
 <table class="table table-bordered">
   <thead>
@@ -25,6 +30,10 @@
         <td><%= @account.account_number %></td>
         <td><%= number_to_currency(@account.amount) %></td>
         <td>
+          <%= link_to new_withdrawal_path, class: 'btn btn-primary' do %>
+            <i class="fa fa-building"></i>
+            Withdraw
+          <% end %>
           <%= link_to account_path(@account.id), class: 'btn btn-primary' do %>
             <i class="fa fa-building"></i>
             Show Transactions

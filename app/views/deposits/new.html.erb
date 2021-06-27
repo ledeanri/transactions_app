@@ -1,8 +1,9 @@
 <h3>New Deposit</h3>
 <div class="form-group">
+  <%= flash_message %>
   <%= form_for(setup_deposit(@deposit)) do |f| %>
   <% if @deposit.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger" role="alert">
       <h2>
         <%= pluralize(@deposit.errors.count, "error") %>
         prohibited this post from being saved:

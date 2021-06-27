@@ -2,7 +2,7 @@ class Account < ApplicationRecord
   belongs_to :user
 
   validates :user, presence: true
-  validates :amount, presence: true, numericality: true
+  validates :amount, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
   validates :account_number, presence: true, uniqueness: true
 
   has_many :transfers

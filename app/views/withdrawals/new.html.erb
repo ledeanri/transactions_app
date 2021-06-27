@@ -1,0 +1,27 @@
+<h3>New Withdraw</h3>
+<div class="form-group">
+  <%= flash_message %>
+  <%= form_for(setup_deposit(@withdrawal)) do |f| %>
+  <% if @withdrawal.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <h2>
+        <%= pluralize(@withdrawal.errors.count, "error") %>
+        prohibited this post from being saved:
+      </h2>
+
+      <ul>
+      <% @withdrawal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :amount, "Amount" %>
+      <%= f.number_field :amount, class: "form-control", required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Withdraw', class: "btn btn-primary", required: true %>
+    </div>
+  <% end %>
+</div>

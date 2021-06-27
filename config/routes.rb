@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#index'
   resources :accounts, only: [:index, :show, :new, :edit, :create]
   resources :deposits
+  resources :withdrawals
+  resources :transfers
 end

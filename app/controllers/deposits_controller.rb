@@ -4,7 +4,6 @@ class DepositsController < ApplicationController
   end
 
   def create
-    puts params
     #byebug
     @deposit = Deposit.new
     @account = Account.find_by(account_number: params[:deposit][:account_attributes][:account_number])
@@ -18,6 +17,7 @@ class DepositsController < ApplicationController
       @balance.save
       @account.amount += @deposit.amount
       @account.save
+      flash[:notice] = "Success"
       redirect_to new_deposit_path(@deposit)
     else
       render :new
