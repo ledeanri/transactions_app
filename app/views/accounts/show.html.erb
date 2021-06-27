@@ -1,5 +1,7 @@
-<h3>Account Name: <%= @account.user.name %></h3>
-<h3>Account E-mail: <%= @account.user.email %></h3>
+<h3>Name: <%= @account.user.name %></h3>
+<h3>E-mail: <%= @account.user.email %></h3>
+<h4>Number Account: <%= @account.account_number %>
+  <br/><br/>
 <table class='table table-bordered'>
   <thead>
     <tr>
@@ -9,26 +11,32 @@
     </tr>
   </thead>
   <tbody>
-    <%= @account.deposits.each do |d| %>
-    <tr>
-      <th><%= d.created_at %></th>
-      <th>Deposits</th>
-      <th><%= d.amount %></th>
-    </tr>
+    <% if @account.deposits.any? %>
+      <%= @account.deposits.each do |d| %>
+      <tr>
+        <th><%= d.created_at %></th>
+        <th>Deposits</th>
+        <th><%= d.amount %></th>
+      </tr>
+      <% end %>
     <% end %>
-    <%= @account.transfers.each do |d| %>
-    <tr>
-      <th><%= d.created_at %></th>
-      <th>Transfers</th>
-      <th><%= d.amount %></th>
-    </tr>
+    <% if @account.transfers.any? %>
+      <%= @account.transfers.each do |d| %>
+      <tr>
+        <th><%= d.created_at %></th>
+        <th>Transfers</th>
+        <th><%= d.amount %></th>
+      </tr>
+      <% end %>
     <% end %>
-    <%= @account.withdrawals.each do |d| %>
-    <tr>
-      <th><%= d.created_at %></th>
-      <th>Withdrawal</th>
-      <th><%= d.amount %></th>
-    </tr>
+    <% if @account.withdrawals.any? %>
+      <%= @account.withdrawals.each do |d| %>
+      <tr>
+        <th><%= d.created_at %></th>
+        <th>Withdrawal</th>
+        <th><%= d.amount %></th>
+      </tr>
+      <% end %>
     <% end %>
     <tr>
       <th></th>

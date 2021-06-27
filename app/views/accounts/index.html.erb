@@ -4,7 +4,8 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Account Name</th>
+      <th>Name</th>
+      <th>Account Number</th>
       <th>Account Balance</th>
       <th>Action</th>
     </tr>
@@ -13,11 +14,12 @@
     <% @accounts.each do |account| %>
       <tr>
         <td><%= account.user.name %></td>
+        <td><%= account.account_number %></td>
         <td><%= number_to_currency(account.amount) %></td>
         <td>
           <%= link_to account_path(account.id), class: 'btn btn-primary' do %>
             <i class="fa fa-building"></i>
-            Show
+            Show Transactions
           <% end %>
         </td>
       </tr>

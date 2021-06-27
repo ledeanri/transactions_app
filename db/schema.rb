@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_202831) do
+ActiveRecord::Schema.define(version: 2021_06_27_003659) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "amount"
+    t.string "account_number"
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_06_26_202831) do
     t.decimal "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "transaction_number"
     t.index ["account_id"], name: "index_deposits_on_account_id"
   end
 
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_06_26_202831) do
     t.decimal "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "transaction_number"
     t.index ["account_id"], name: "index_transfers_on_account_id"
   end
 
@@ -77,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_06_26_202831) do
     t.decimal "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "transaction_number"
     t.index ["account_id"], name: "index_withdrawals_on_account_id"
   end
 

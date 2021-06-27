@@ -8,7 +8,7 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @account = Account.new(params.require(:account).permit(:amount))
+    @account = Account.new
     @account.user = current_user
     @account.save
     redirect_to root_path
