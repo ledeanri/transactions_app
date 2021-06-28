@@ -67,3 +67,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'momentjs-rails' # dependency of daterangepicker
 gem 'bootstrap-daterangepicker-rails'
+
+group :production do
+  gem 'pg'
+end
