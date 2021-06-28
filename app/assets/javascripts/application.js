@@ -18,3 +18,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require moment
+//= require daterangepicker

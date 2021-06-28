@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :deposits
   resources :withdrawals
   resources :transfers
+  resources :balances
 end

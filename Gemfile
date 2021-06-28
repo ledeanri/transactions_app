@@ -65,3 +65,5 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'haml'
 gem 'jquery-rails'
+gem 'momentjs-rails' # dependency of daterangepicker
+gem 'bootstrap-daterangepicker-rails'

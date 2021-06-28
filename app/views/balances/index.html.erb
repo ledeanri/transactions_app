@@ -1,0 +1,20 @@
+<h1>Balance list</h1>
+<%= javascript_include_tag "daterangepicker_initializer.js" %>
+<%= render 'filter_form' %>
+<br>
+<% if @balances.present? %>
+  <table class="table table-bordered">
+    <thead>
+      <th>Name</th>
+      <th>Date of birth</th>
+      <th>Action</th>
+    </thead>
+
+    <tbody id='balances'>
+      <%= render @balances %>
+    </tbody>
+  </table>
+
+<% else %>
+  <h3>No balances found</h3>
+<% end %>

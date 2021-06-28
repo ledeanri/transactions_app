@@ -4,6 +4,7 @@ class Transfer < ApplicationRecord
   validates :account, presence: true
   validates :amount, presence: true, numericality: true
   validates :transaction_number, presence: true, uniqueness: true
+  validates_associated :account
 
   accepts_nested_attributes_for :account
 

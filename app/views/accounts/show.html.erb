@@ -2,6 +2,17 @@
 <h3>E-mail: <%= @account.user.email %></h3>
 <h4>Number Account: <%= @account.account_number %>
   <br/><br/>
+  <div class="row">
+    <%= form_for :search, method: :get do |f| %>
+      <div class="form-group mx-sm-3 mb-2">
+        <%= f.date_field :start_date, value: @start, class: "form-control" %>
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <%= f.date_field :end_date, value: @end, class: "form-control"  %>
+      </div>
+        <%= f.submit 'Search', class: "btn btn-primary" %>
+    <% end %>
+  </div>
 <table class='table table-bordered'>
   <thead>
     <tr>
@@ -11,17 +22,17 @@
     </tr>
   </thead>
   <tbody>
-    <% if @account.deposits.any? %>
-      <% @account.deposits.each do |d| %>
+    <% if @deposits.any? %>
+      <% @deposits.each do |d| %>
       <tr>
-        <th><%= d.created_at %></th>
+        <th><%= d.created_at.strftime("%FT%T") %></th>
         <th>Deposits</th>
         <th><%= d.amount %></th>
       </tr>
       <% end %>
     <% end %>
-    <% if @account.transfers.any? %>
-      <% @account.transfers.each do |d| %>
+    <% if @transfers.any? %>
+      <% @transfers.each do |d| %>
       <tr>
         <th><%= d.created_at %></th>
         <th>Transfers</th>
@@ -29,8 +40,8 @@
       </tr>
       <% end %>
     <% end %>
-    <% if @account.withdrawals.any? %>
-      <% @account.withdrawals.each do |d| %>
+    <% if @withdrawals.any? %>
+      <% @withdrawals.each do |d| %>
       <tr>
         <th><%= d.created_at %></th>
         <th>Withdrawal</th>
