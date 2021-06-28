@@ -1,6 +1,12 @@
-<h3>Name: <%= @account.user.name %></h3>
-<h3>E-mail: <%= @account.user.email %></h3>
-<h4>Number Account: <%= @account.account_number %>
+
+<h3>Balance</h3>
+<div class="form-group">
+  <%= button_to "Back to Home", root_path, :id => "principal-path",
+        :class => "btn btn-primary", :method => :get %>
+</div>
+<h4>Name: <%= @account.user.name %></h4>
+<h4>E-mail: <%= @account.user.email %></h4>
+<h5>Number Account: <%= @account.account_number %></h5>
   <br/><br/>
   <div class="row">
     <%= form_for :search, method: :get do |f| %>

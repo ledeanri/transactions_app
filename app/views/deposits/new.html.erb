@@ -1,5 +1,9 @@
 <h3>New Deposit</h3>
 <div class="form-group">
+  <div class="form-group">
+    <%= button_to "Back to Home", root_path, :id => "principal-path",
+          :class => "btn btn-primary", :method => :get %>
+  </div>
   <%= flash_message %>
   <%= form_for(setup_deposit(@deposit)) do |f| %>
   <% if @deposit.errors.any? %>
